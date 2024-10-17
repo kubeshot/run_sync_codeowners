@@ -11,7 +11,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2 # Use a recent version
+        uses: actions/checkout@v2 # Checkout the repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3 # Set up Node.js environment
+        with:
+          node-version: "16" # Specify the Node.js version
+
+      - name: Install dependencies
+        run: npm install # Install dependencies defined in package.json
 
       - name: Sync CODEOWNERS file
         uses: kubeshot/sync_codeowners@main # Use the custom action
