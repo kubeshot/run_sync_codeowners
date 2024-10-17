@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@main  # Checkout the repository
+      - uses: actions/checkout@v2  # Checkout the repository
 
       - name: Sync CODEOWNERS file
-        uses: kubeshot/sync_codeowners@v1  # Use the custom action
+        uses: kubeshot/sync_codeowners@main  # Use the custom action
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}  # Pass GitHub token securely
           codeowners-path: ".github/CODEOWNERS"  # Optional: specify path
