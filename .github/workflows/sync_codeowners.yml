@@ -5,6 +5,9 @@ on:
       - main
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   sync_codeowners:
     runs-on: ubuntu-latest
