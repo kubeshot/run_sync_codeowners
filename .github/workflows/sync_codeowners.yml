@@ -1,0 +1,22 @@
+name: 'Sync CODEOWNERS'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync_codeowners:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2  # Checkout the repository
+
+      - name: Sync CODEOWNERS file
+        uses: your-username/codeowners-sync-action@v1  # Use the custom action
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}  # Pass GitHub token securely
+          codeowners-path: ".github/CODEOWNERS"  # Optional: specify path
+          codeowners-content: |
+            *       @team-lead  # The content for the CODEOWNERS file
+
