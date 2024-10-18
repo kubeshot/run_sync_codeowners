@@ -1,0 +1,6 @@
+*.js js-team@example.com
+*.py python-team@example.com
+*.css frontend-team@example.com
+*.html frontend-team@example.com
+*.go backend-team@example.com
+*.java backend-team@example.com
