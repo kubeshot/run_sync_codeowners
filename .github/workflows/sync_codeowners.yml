@@ -1,0 +1,25 @@
+name: Sync CODEOWNERS File
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-codeowners:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # - name: Install dependencies
+      #   run: npm install
+
+      - name: Sync CODEOWNERS file and create PR
+        run: node sync_codeowners.js # Make sure the script creates the PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use your PAT_TOKEN for auth
